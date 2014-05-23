@@ -17,6 +17,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_recipe "yum-epel"
+
 secrets = Chef::EncryptedDataBagItem.load("munge", "secrets")
 
 munge_key = secrets['munge_key']
