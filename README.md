@@ -1,6 +1,6 @@
 munge Cookbook
 ==============
-Installs munge from package and sets up munge key.
+Installs [munge](https://code.google.com/p/munge/) from package and sets up munge key.
 
 
 Requirements
