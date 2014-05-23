@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: slurm
+# Cookbook Name:: munge
 # Recipe:: default
 #
 # Copyright 2014, YOUR_COMPANY_NAME
@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-secrets = Chef::EncryptedDataBagItem.load("slurm", "secrets")
+secrets = Chef::EncryptedDataBagItem.load("munge", "secrets")
 
 munge_key = secrets['munge_key']
 
@@ -19,12 +19,19 @@ packages.each do |pkg|
 	end
 end
 
-script "create_munge_key" do
-	interpreter "bash"
-	user "root"
-	code <<-EOH
-		echo #{munge_key} > /etc/munge/munge.key
-		chmod 0400 /etc/munge/munge.key
-	EOH
+execute "create_munge_key" do
+	command "echo #{munge_key} > /etc/munge/munge.key"
 	creates "/etc/munge/munge.key"
+end
+
+file "/etc/munge/munge.key" do
+	mode "0400"
+	user "munge"
+	group "munge"
+	notifies :restart, "service[munge]", :immediately
+end
+
+service "munge" do
+	supports :restart => true
+	action [:enable, :start]
 end
