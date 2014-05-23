@@ -11,6 +11,12 @@ Following cookbooks are dependency.
 
 - `yum-epel`
 
+#### Platforms
+
+The following platforms are supported and tested under test kitchen:
+
+* CentOS 6.5
+
 Usage
 -----
 
