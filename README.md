@@ -16,7 +16,13 @@ Usage
 
 #### munge::default
 
-1. Create a data bag `munge` and an item `secrets`:
+* Create a random text for `munge_key`:
+
+```bash
+openssl rand -base64 512 | tr -d '\r\n'
+```
+
+* Create a data bag `munge` and an item `secrets`:
 
 ```json
 {
@@ -25,7 +31,7 @@ Usage
 }
 ```
 
-2. Include `munge` in your node's `run_list`:
+* Include `munge` in your node's `run_list`:
 
 ```json
 {
