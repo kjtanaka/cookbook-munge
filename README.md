@@ -16,13 +16,13 @@ Usage
 
 #### munge::default
 
-* Create a random text for `munge_key`:
+* Generate random text for `munge_key`:
 
 ```bash
 openssl rand -base64 512 | tr -d '\r\n'
 ```
 
-* Create a data bag `munge` and an item `secrets`:
+* Create a data bag `munge` and an item `secrets` and add your `munge_key`:
 
 ```json
 {
