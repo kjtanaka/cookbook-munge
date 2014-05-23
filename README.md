@@ -13,7 +13,8 @@ cookbook `yum-epel` is a dependency.
 
 The following platforms are supported and tested under test kitchen:
 
-* CentOS 5.10,6.5
+- CentOS 5.10
+- CentOS 6.5
 
 Usage
 -----
