@@ -6,16 +6,14 @@ Installs munge from package and sets up munge key.
 Requirements
 ------------
 
-#### cookbooks
-Following cookbooks are dependency.
-
-- `yum-epel`
+#### Cookbook
+cookbook `yum-epel` is a dependency.
 
 #### Platforms
 
 The following platforms are supported and tested under test kitchen:
 
-* CentOS 6.5
+* CentOS 5.10,6.5
 
 Usage
 -----
